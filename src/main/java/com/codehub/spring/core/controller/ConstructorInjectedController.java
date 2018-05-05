@@ -15,7 +15,6 @@ public class ConstructorInjectedController {
     @Autowired
     public ConstructorInjectedController(GreetingService greetingService) {
         this.greetingService = greetingService;
-        System.out.println("Using Constructor");
     }
 
     public String sayHello() {

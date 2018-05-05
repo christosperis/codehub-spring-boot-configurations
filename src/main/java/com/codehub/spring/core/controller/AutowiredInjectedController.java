@@ -1,7 +1,6 @@
 package com.codehub.spring.core.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.codehub.spring.core.service.GreetingService;
@@ -12,7 +11,6 @@ public class AutowiredInjectedController {
 
     //We need this annotation here to know where to Autowire
     @Autowired
-    @Qualifier("greetingServiceSpainImpl")
     private GreetingService greetingService;
 
     public String sayHello() {
