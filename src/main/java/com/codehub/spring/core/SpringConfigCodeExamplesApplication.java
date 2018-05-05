@@ -9,10 +9,10 @@ import com.codehub.spring.core.controller.ConstructorInjectedController;
 import com.codehub.spring.core.controller.SetterInjectedController;
 
 @SpringBootApplication
-public class SpringCoreCodeExamplesApplication {
+public class SpringConfigCodeExamplesApplication {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringCoreCodeExamplesApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(SpringConfigCodeExamplesApplication.class, args);
 
         AutowiredInjectedController autowiredInjectedController = (AutowiredInjectedController) ctx.getBean("autowiredInjectedController");
         System.out.println(autowiredInjectedController.sayHello());
