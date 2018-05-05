@@ -2,6 +2,7 @@ package com.codehub.spring.core.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.Lazy;
 
 import com.codehub.spring.core.controller.ConstructorInjectedController;
@@ -16,13 +17,14 @@ public class AppConfig {
         return new GreetingServiceImpl();
     }
 
-    @Bean
+    @Bean("lazyBean")
     @Lazy
     ConstructorInjectedController getConstructorInjectedController() {
         return new ConstructorInjectedController(getGreetingService());
     }
 
     @Bean
+    @DependsOn("lazyBean")
     SetterInjectedController getSetterInjectedController() {
         SetterInjectedController setterInjectedController = new SetterInjectedController();
         setterInjectedController.setGreetingService(getGreetingService());
