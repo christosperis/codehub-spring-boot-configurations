@@ -9,18 +9,20 @@ import com.codehub.spring.core.controller.ConstructorInjectedController;
 import com.codehub.spring.core.controller.SetterInjectedController;
 
 @SpringBootApplication
-public class SpringCoreCodeExamplesApplication {
+public class SpringConfigCodeExamplesApplication {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringCoreCodeExamplesApplication.class, args);
+        ApplicationContext ctx = SpringApplication.run(SpringConfigCodeExamplesApplication.class, args);
 
-        AutowiredInjectedController autowiredInjectedController = (AutowiredInjectedController) ctx.getBean("autowiredInjectedController");
+        System.out.println("Spring Context is Initialized!");
+
+        AutowiredInjectedController autowiredInjectedController = ctx.getBean(AutowiredInjectedController.class);
         System.out.println(autowiredInjectedController.sayHello());
 
-        ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+        ConstructorInjectedController constructorInjectedController = ctx.getBean(ConstructorInjectedController.class);
         System.out.println(constructorInjectedController.sayHello());
 
-        SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+        SetterInjectedController setterInjectedController = ctx.getBean(SetterInjectedController.class);
         System.out.println(setterInjectedController.sayHello());
     }
 }

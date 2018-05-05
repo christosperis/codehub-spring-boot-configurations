@@ -1,24 +1,26 @@
 package com.codehub.spring.core.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import javax.annotation.PostConstruct;
 
 import com.codehub.spring.core.service.GreetingService;
 
 
 //This annotation is needed to tell spring that this is a bean
-@Controller
 public class ConstructorInjectedController {
 
     private GreetingService greetingService;
 
-    @Autowired
+    @PostConstruct
+    private void initialize() {
+        System.out.println("Lazy bean constructed");
+    }
+
     public ConstructorInjectedController(GreetingService greetingService) {
         this.greetingService = greetingService;
-        System.out.println("Using Constructor");
     }
 
     public String sayHello() {
+        System.out.println("Lazy bean method called");
         return greetingService.sayGreeting();
     }
 }
